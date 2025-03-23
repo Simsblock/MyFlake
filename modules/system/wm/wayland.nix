@@ -1,21 +1,20 @@
-{ pkgs, ...}:{
+{ config, pkgs, ... } : {
     imports = [
         ./components/pipewire.nix
         ./components/dbus.nix
     ];
 
-    #configure X11
+    environment.systemPackages = with pkgs; [
+        wayland
+        waydroid #allows for android applications to run on wayland
+    ];
+
+    #xwayland for x11 applications
     services.xserver = {
         enable = true;
         xkb = {
             layout = "us";
             variant = "";
-        };
-        displayManager = {
-            autoLogin = {
-                enable = true;
-                user = "nix";
-            };
         };
     };
 }
