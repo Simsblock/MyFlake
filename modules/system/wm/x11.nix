@@ -1,5 +1,7 @@
 { pkgs, ...}:{
-    imports = [];
+    imports = [
+        ./components/pipewire.nix
+    ];
 
     #configure X11
     services.xserver = {
