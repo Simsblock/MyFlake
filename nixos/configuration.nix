@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./modules/system/wm/hyprland.nix
+      ../modules/system/wm/hyprland.nix
     ];
 
   # Bootloader.

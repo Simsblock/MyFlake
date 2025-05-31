@@ -25,7 +25,7 @@
 		nixos = lib.nixosSystem { #host_name (usually)  = ...
 			inherit system;
 			specialArgs = { inherit inputs; };
-			modules = [ ./configuration.nix ];
+			modules = [ ./nixos/configuration.nix ];
 		};
 	};
 	homeConfigurations = {
