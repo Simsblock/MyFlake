@@ -1,7 +1,8 @@
 {config, pkgs, ...}: {
     imports = [
         ../wayland.nix
-        #./waybar/waybar.nix
+        ./waybar/waybar.nix
+        #./rofi/rofi.nix
     ];
 
   programs.hyprland = {
