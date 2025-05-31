@@ -31,7 +31,7 @@
 	homeConfigurations = {
 		nix = home-manager.lib.homeManagerConfiguration { #user_name, home manager config  
 			inherit pkgs;
-			modules = [ ./home.nix ];
+			modules = [ ./home/home.nix ];
 		};
 	};
   };

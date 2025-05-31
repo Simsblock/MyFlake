@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "nix";
-  home.homeDirectory = "/home/nix";
+  home.username = "simsblock";
+  home.homeDirectory = "/home/simsblock";
 
   # GIT
   programs.git = {
