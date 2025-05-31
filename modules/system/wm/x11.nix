@@ -1,6 +1,7 @@
 { pkgs, ...}:{
     imports = [
         ./components/pipewire.nix
+        ./components/dbus.nix
     ];
 
     #configure X11
@@ -8,11 +9,12 @@
         enable = true;
         xkb = {
             layout = "us";
+            variant = "";
         };
         displayManager = {
             autoLogin = {
                 enable = true;
-                user = "nix";
+                user = "simsblock";
             };
         };
     };
