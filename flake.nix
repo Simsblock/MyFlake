@@ -28,10 +28,11 @@
 			modules = [ ./nixos/configuration.nix ];
 		};
 	};
+	# home manager
 	homeConfigurations = {
-		nix = home-manager.lib.homeManagerConfiguration { #user_name, home manager config  
+		nix = home-manager.lib.homeManagerConfiguration {  
 			inherit pkgs;
-			modules = [ ./home/home.nix ];
+			modules = [ ./home/simsblock/simsblock.nix ];
 		};
 	};
   };

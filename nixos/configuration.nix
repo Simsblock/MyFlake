@@ -4,12 +4,26 @@
 
 { config, pkgs, ... }:
 
+
+let 
+  conf_vars = {
+    gui = "hyprland"; # hyprland, plasma
+  };
+
+  wmModules =
+    if conf_vars.gui == "hyprland" then [
+      ../modules/system/wayland/compositors/hyprland/hyprland.nix
+    ] else if conf_vars.gui == "plasma" then [
+      ../modules/system/x11/desktop_enviornments/plasma/plasma.nix
+    ] else [];
+in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../modules/system/wm/hyprland/hyprland.nix
-    ];
+  imports =
+    [
+      ./hardware-configuration.nix
+      ../modules/common/users.nix
+    ] ++ wmModules;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -45,17 +59,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.simsblock = {
-    isNormalUser = true;
-    description = "Simsblock";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
 
   # Install firefox.
   programs.firefox.enable = true;

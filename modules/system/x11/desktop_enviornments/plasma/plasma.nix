@@ -1,6 +1,6 @@
 { pkgs, ...}:{
     imports = [
-        ../x11.nix
+        ../../x11.nix
     ];
 
     #enable plasma
